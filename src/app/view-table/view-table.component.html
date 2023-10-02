@@ -1,0 +1,100 @@
+<div style="margin: 24px 64px;">
+<!-- row1 -->
+  <div class="row1">
+    <div class="top-logo" style="display: flex;">
+      <div style="border: 1px solid #000; width: fit-content; padding: 1px;">
+        Circult Ricardo Tormo
+      </div>
+      <div style="display: flex; align-items: end; margin-left: 6px; font-weight: bold">
+        Results and timing service provided by
+      </div>
+      <img src="../../assets/logo1.png" alt="" style="height: 20px; display: flex; align-items: end;">
+    </div>
+  </div>
+  <div class="row2" style="display: flex; margin-top: 4px; align-items: center;">
+    <img src="../../assets/map.png" alt="">
+    <div style="display: flex; justify-content: space-between; width: 100%;">
+      <div style="font-weight: bold; font-size: 20px; margin-left: 8px;">
+        GRAN PREMIO MOTUL DE LA COMUNITAT VALENCIANA
+      </div>
+      <div style="font-weight: bold; font-size: 28px; display: flex;">MotoGP <div style="font-size: 14px;">TM</div></div>
+    </div>
+  </div>
+  <div class="row3" style="display: flex; justify-content: space-between; width: 100%;">
+    <div style="display: flex;">
+      <div style="border: 1px #000 solid; width: max-content; padding: 0 34px;">
+        4005 m.
+      </div>
+      <div style="font-weight: bold; font-size: 20px; margin-left: 8px;">
+        World Championship Classification
+      </div>
+    </div>
+    <div style="border: 4px #000 solid; padding: 0px 4px; font-size: 26px; font-weight: bold; line-height: 26px;">
+      30
+    </div>
+  </div>
+</div>
+<div style="margin: 24px 64px;">
+  <nz-table #basicTable [nzData]="bikers" [nzFrontPagination]="false" [nzBordered]="false">
+      <thead>
+        <tr>
+          <th></th>
+          <th style="font-size: 20px; font-weight: bold;" [nzWidth]="'100'">Rider</th>
+          <th></th>
+          <th style="font-style: italic;">Points</th>
+          <th [nzWidth]="'70'" [nzAlign]="'center'" style="font-size: 13px; font-style: italic;">Leader</th>
+          <th [nzWidth]="'70'" [nzAlign]="'center'" style="font-size: 13px; font-style: italic;">Previous</th>
+          <th [nzAlign]="'center'">QAT</th>
+          <th [nzAlign]="'center'">INA</th>
+          <th [nzAlign]="'center'">ARG</th>
+          <th [nzAlign]="'center'">AME</th>
+          <th [nzAlign]="'center'">POR</th>
+          <th [nzAlign]="'center'">SPA</th>
+          <th [nzAlign]="'center'">FRA</th>
+          <th [nzAlign]="'center'">ITA</th>
+          <th [nzAlign]="'center'">CAT</th>
+          <th [nzAlign]="'center'">GER</th>
+          <th [nzAlign]="'center'">NED</th>
+          <th [nzAlign]="'center'">GBR</th>
+          <th [nzAlign]="'center'">AUT</th>
+          <th [nzAlign]="'center'">RSM</th>
+          <th [nzAlign]="'center'">ARA</th>
+          <th [nzAlign]="'center'">JPN</th>
+          <th [nzAlign]="'center'">THA</th>
+          <th [nzAlign]="'center'">AUS</th>
+          <th [nzAlign]="'center'">MAL</th>
+          <th [nzAlign]="'center'">VAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data;" style="height: 32px;">
+          <td>{{data.id}}</td>
+          <td style="fontSize: 16px; font-weight: bold">{{data.name}}</td>
+          <td style="float: right;">{{data.nationality}}</td>
+          <td style="text-align: right;">{{data.points}}</td>
+          <td style="fontSize: 13px; text-align: right;">{{data.leader}}</td>
+          <td style="fontSize: 13px; text-align: right;">{{data.previous}}</td>
+          <td style="text-align: right;">{{data.qat ?? "-"}}</td>
+          <td style="text-align: right;">{{data.ina ?? "-"}}</td>
+          <td style="text-align: right;">{{data.arg ?? "-"}}</td>
+          <td style="text-align: right;">{{data.ame ?? "-"}}</td>
+          <td style="text-align: right;">{{data.por ?? "-"}}</td>
+          <td style="text-align: right;">{{data.spa ?? "-"}}</td>
+          <td style="text-align: right;">{{data.fra ?? "-"}}</td>
+          <td style="text-align: right;">{{data.ita ?? "-"}}</td>
+          <td style="text-align: right;">{{data.cat ?? "-"}}</td>
+          <td style="text-align: right;">{{data.ger ?? "-"}}</td>
+          <td style="text-align: right;">{{data.ned ?? "-"}}</td>
+          <td style="text-align: right;">{{data.gbr ?? "-"}}</td>
+          <td style="text-align: right;">{{data.aut ?? "-"}}</td>
+          <td style="text-align: right;">{{data.rsm ?? "-"}}</td>
+          <td style="text-align: right;">{{data.ara ?? "-"}}</td>
+          <td style="text-align: right;">{{data.jpn ?? "-"}}</td>
+          <td style="text-align: right;">{{data.tha ?? "-"}}</td>
+          <td style="text-align: right;">{{data.aus ?? "-"}}</td>
+          <td style="text-align: right;">{{data.mal ?? "-"}}</td>
+          <td style="text-align: right;">{{data.val ?? "-"}}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+</div>
