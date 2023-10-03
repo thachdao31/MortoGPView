@@ -67,8 +67,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of basicTable.data;" style="height: 32px;">
-          <td>{{data.id}}</td>
+        <tr *ngFor="let data of basicTable.data; let i = index" style="height: 32px;">
+          <td>{{i}}</td>
           <td style="fontSize: 16px; font-weight: bold">{{data.name}}</td>
           <td style="float: right;">{{data.nationality}}</td>
           <td style="text-align: right;">{{data.points}}</td>
