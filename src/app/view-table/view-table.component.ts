@@ -22,7 +22,10 @@ export class ViewTableComponent {
   biker: any;
 
   getAllBikers(): void {
-    this.bikersService.getAllBikers().subscribe(bikers => this.bikers = bikers);
+    this.bikersService.getAllBikers().subscribe(bikers =>{ this.bikers = bikers; console.log(bikers[0].ame.Points)});
   }
 
+  formatBiker(biker: Biker) {
+    return biker
+  }
 }
