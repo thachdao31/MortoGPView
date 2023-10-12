@@ -9,7 +9,19 @@
         Results and timing service provided by
       </div>
       <img src="../../assets/logo1.png" alt="" style="height: 20px; display: flex; align-items: end;">
+      <div style="margin-left: 20px; display: flex; align-items: center;">
+        <div style="width: 60%;">Add/Delete Race</div>
+        <input [(ngModel)]="newNameRace" nz-input placeholder="Type name race" type="text" />
+        <button (click)="addNewRace()" style="margin-left: 8px;" nz-button nzType="primary">Add</button>
+        <button (click)="deleteRace()" style="margin-left: 8px;" nz-button nzDanger nzType="primary">Delete</button>
+      </div>
+      <div style="margin-left: 20px;display: flex; align-items: center;">
+        <div>Add New National</div>
+        <input [(ngModel)]="newNational" nz-input placeholder="Type new national" type="text" />
+        <button (click)="addNewNational()" style="margin-left: 8px;" nz-button nzType="primary">Add</button>
+      </div>
     </div>
+    
   </div>
   <div class="row2" style="display: flex; margin-top: 4px; align-items: center;">
     <img src="../../assets/map.png" alt="">
@@ -18,9 +30,19 @@
         GRAN PREMIO MOTUL DE LA COMUNITAT VALENCIANA
       </div>
       <div style="display: flex; align-items: center;">
-        <div style="width: 60%;">Add New Race</div>
-        <input [(ngModel)]="newNameRace" nz-input placeholder="Type name race" type="text" />
-        <button (click)="addNewRace()" style="margin-left: 8px;" nz-button nzType="primary">Add</button>
+        <div style="width: 100%;">Add New Rider</div>
+        <input [(ngModel)]="newNameRider" nz-input placeholder="Type new name rider" type="text" />
+        <nz-select style="width: 150px;" nzPlaceHolder="Select a national" [(ngModel)]="newNationalIdRider">
+          <nz-option *ngFor="let national of nationals" [nzValue]="national.id" [nzLabel]="national.name"></nz-option>
+        </nz-select>
+        <button (click)="addNewRider()" style="margin-left: 8px;" nz-button nzType="primary">Add</button>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <div>Detete Rider</div>
+        <nz-select style="width: 150px;" nzPlaceHolder="Select a rider" [(ngModel)]="idRiderDelete">
+          <nz-option *ngFor="let rider of bikers" [nzValue]="rider.id" [nzLabel]="rider.name"></nz-option>
+        </nz-select>
+        <button (click)="deleteRider()" style="margin-left: 8px;" nz-button nzDanger nzType="primary">Delete</button>
       </div>
       <div style="font-weight: bold; font-size: 28px; display: flex;">MotoGP <div style="font-size: 14px;">TM</div></div>
     </div>
@@ -33,6 +55,18 @@
       <div style="font-weight: bold; font-size: 20px; margin-left: 8px;">
         World Championship Classification
       </div>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+      <div>Update Points</div>
+      <nz-select style="width: 150px;" nzPlaceHolder="Select a rider" [(ngModel)]="idRiderUpdate">
+        <nz-option *ngFor="let rider of bikers" [nzValue]="rider.id" [nzLabel]="rider.name"></nz-option>
+      </nz-select>
+      <nz-select style="width: 150px;" nzPlaceHolder="Select Race" [(ngModel)]="idRaceUpdate">
+        <nz-option *ngFor="let race of races" [nzValue]="race.id" [nzLabel]="race.name"></nz-option>
+      </nz-select>
+      <input style="width: 100px;" [(ngModel)]="newPointUpdate" nz-input placeholder="Point" type="text" />
+      <button (click)="updatePoint()" style="margin-left: 8px;" nz-button nzType="primary">Update</button>
     </div>
     <div style="border: 4px #000 solid; padding: 0px 4px; font-size: 26px; font-weight: bold; line-height: 26px;">
       30
