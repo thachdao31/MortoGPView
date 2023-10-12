@@ -17,6 +17,11 @@
       <div style="font-weight: bold; font-size: 20px; margin-left: 8px;">
         GRAN PREMIO MOTUL DE LA COMUNITAT VALENCIANA
       </div>
+      <div style="display: flex; align-items: center;">
+        <div style="width: 60%;">Add New Race</div>
+        <input [(ngModel)]="newNameRace" nz-input placeholder="Type name race" type="text" />
+        <button (click)="addNewRace()" style="margin-left: 8px;" nz-button nzType="primary">Add</button>
+      </div>
       <div style="font-weight: bold; font-size: 28px; display: flex;">MotoGP <div style="font-size: 14px;">TM</div></div>
     </div>
   </div>
@@ -38,62 +43,24 @@
   <nz-table #basicTable [nzData]="bikers" [nzFrontPagination]="false" [nzBordered]="false">
       <thead>
         <tr>
-          <th></th>
+          <th>ID</th>
           <th style="font-size: 20px; font-weight: bold;" [nzWidth]="'100'">Rider</th>
           <th></th>
           <th style="font-style: italic;">Points</th>
           <th [nzWidth]="'70'" [nzAlign]="'center'" style="font-size: 13px; font-style: italic;">Leader</th>
           <th [nzWidth]="'70'" [nzAlign]="'center'" style="font-size: 13px; font-style: italic;">Previous</th>
-          <th [nzAlign]="'center'">QAT</th>
-          <th [nzAlign]="'center'">INA</th>
-          <th [nzAlign]="'center'">ARG</th>
-          <th [nzAlign]="'center'">AME</th>
-          <th [nzAlign]="'center'">POR</th>
-          <th [nzAlign]="'center'">SPA</th>
-          <th [nzAlign]="'center'">FRA</th>
-          <th [nzAlign]="'center'">ITA</th>
-          <th [nzAlign]="'center'">CAT</th>
-          <th [nzAlign]="'center'">GER</th>
-          <th [nzAlign]="'center'">NED</th>
-          <th [nzAlign]="'center'">GBR</th>
-          <th [nzAlign]="'center'">AUT</th>
-          <th [nzAlign]="'center'">RSM</th>
-          <th [nzAlign]="'center'">ARA</th>
-          <th [nzAlign]="'center'">JPN</th>
-          <th [nzAlign]="'center'">THA</th>
-          <th [nzAlign]="'center'">AUS</th>
-          <th [nzAlign]="'center'">MAL</th>
-          <th [nzAlign]="'center'">VAL</th>
+          <th *ngFor="let race of races" [nzAlign]="'center'">{{race.name}}</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let data of basicTable.data; let i = index" style="height: 32px;">
-          <td>{{i + 1}}</td>
-          <td style="fontSize: 16px; font-weight: bold">{{data.name}}</td>
-          <td style="float: right;">{{data.nationality}}</td>
-          <td style="text-align: right;">{{data.points}}</td>
-          <td style="fontSize: 13px; text-align: right;">{{data.leader}}</td>
-          <td style="fontSize: 13px; text-align: right;">{{data.previous}}</td>
-          <td style="text-align: right;">{{data.qat.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.ina.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.arg.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.ame.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.por.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.spa.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.fra.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.ita.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.cat.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.ger.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.ned.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.gbr.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.aut.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.rsm.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.ara.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.jpn.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.tha.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.aus.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.mal.Points ?? "-"}}</td>
-          <td style="text-align: right;">{{data.val.Points ?? "-"}}</td>
+          <td>{{data.id}}</td>
+         <td>{{data.name}}</td>
+         <td>{{data.national.name}}</td>
+         <td>{{getTotalPoints(data)}}</td>
+         <td></td>
+         <td></td>
+        <td [nzAlign]="'right'" *ngFor="let race of races">{{getPointByRace(data, race)}}</td>
         </tr>
       </tbody>
     </nz-table>

@@ -15,22 +15,22 @@ export class BikersService {
   ) { }
 
   getAllBikers(): Observable<Biker[]> {
-    return this.http.get<Biker[]>(Const.API_FOR_ALL_URL);
+    return this.http.get<Biker[]>(Const.API_FOR_BIKER);
   }
 
   getBikerById(id: any): Observable<Biker> {
-    return this.http.get<Biker>(Const.API_FOR_ALL_URL + "/" + id);
+    return this.http.get<Biker>(Const.API_FOR_BIKER + "/" + id);
   }
 
   createBiker(biker: Biker): Observable<Biker> {
-    return this.http.post<Biker>(Const.API_FOR_ALL_URL, biker);
+    return this.http.post<Biker>(Const.API_FOR_BIKER, biker);
   }
 
-  updateBiker(id: any, biker: Biker): Observable<Biker> {
-    return this.http.put<Biker>(Const.API_FOR_ALL_URL + id, biker);
-  }
+  // updateBiker(id: any, biker: Biker): Observable<Biker> {
+  //   return this.http.put<Biker>(Const.API_FOR_BIKER + id, biker);
+  // }
 
   deleteBiker(id: any): Observable<Biker> {
-    return this.http.delete<Biker>(Const.API_FOR_ALL_URL + id);
+    return this.http.delete<Biker>(Const.API_FOR_BIKER +"/" + id);
   }
 }

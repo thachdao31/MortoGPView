@@ -1,9 +1,10 @@
 // Purpose: Interface for Biker data model
-export interface Biker {
+export interface Points {
     "id": number,
-    "name": string,
-    "nationalId": number,
-    "national" : {
+    "point": number,
+    "bikerId": number,
+    "racesId": number,
+    "races": {
         "id": number,
         "name": string
     }

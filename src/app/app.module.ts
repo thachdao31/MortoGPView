@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewTableComponent } from './view-table/view-table.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzImageModule } from 'ng-zorro-antd/image';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 registerLocaleData(vi);
 
@@ -28,7 +30,9 @@ registerLocaleData(vi);
     HttpClientModule,
     BrowserAnimationsModule,
     NzTableModule,
-    NzImageModule
+    NzImageModule,
+    NzInputModule,
+    NzButtonModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: vi_VN }
