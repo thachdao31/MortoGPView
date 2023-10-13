@@ -121,6 +121,11 @@ export class ViewTableComponent {
     });
   }
 
+  getNationalById(id: any) {
+    let national = this.nationals.filter(national => national.id == id);
+    return national[0].name;
+  }
+
   addNewRider() {
     if( this.newNameRider == "" && this.newNationalIdRider == "") return;
     let biker: Biker = {
@@ -129,7 +134,7 @@ export class ViewTableComponent {
       nationalId: this.newNationalIdRider,
       national : {
         id: 0,
-        name: "string"
+        name: this.getNationalById(this.newNationalIdRider)
     }
     }
     this.bikersService.createBiker(biker).subscribe(() => {
