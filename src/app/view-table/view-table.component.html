@@ -94,7 +94,7 @@
          <td>{{data.totalPoints}}</td>
          <td [nzAlign]="'center'">{{getLeaderPoints(data.bikerId)}}</td>
          <td [nzAlign]="'center'">{{getPreviousPoints(data.bikerId)}}</td>
-        <td [nzAlign]="'right'" *ngFor="let biker of data.bikerObj">{{getPointByRace(data.bikerId, biker.racesId) ?? "-"}}</td>
+        <td [nzAlign]="'right'" *ngFor="let race of races">{{getPointByRace(data.bikerId, race.id)}}</td>
         </tr>
       </tbody>
     </nz-table>

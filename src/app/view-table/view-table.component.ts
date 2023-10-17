@@ -36,6 +36,10 @@ export class ViewTableComponent {
   ) {}
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
     this.getAllBikers();
     this.fetchListRace();
     this.fetchListPoints();
@@ -166,8 +170,7 @@ export class ViewTableComponent {
     }
     }
     this.bikersService.createBiker(biker).subscribe(() => {
-      this.fetchListPointsSort();
-      this.getAllBikers();
+      this.loadData();
     });
   }
 
