@@ -33,4 +33,12 @@ export class PointsService {
   deletePoint(id: any): Observable<Points> {
     return this.http.delete<Points>(Const.API_FOR_POINTS + "/" + id);
   }
+
+  getTotalPointsByBikerId(id: any): Observable<any> {
+    return this.http.get<any>(Const.API_FOR_POINTS + "/totalpoints/" + id);
+  }
+
+  getPointsByBikerId(): Observable<any> {
+    return this.http.get<any>(Const.API_FOR_POINTS + "/listSortByTotalPoints");
+  }
 }

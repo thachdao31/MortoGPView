@@ -74,7 +74,7 @@
   </div>
 </div>
 <div style="margin: 24px 64px;">
-  <nz-table #basicTable [nzData]="bikers" [nzFrontPagination]="false" [nzBordered]="false">
+  <nz-table #basicTable [nzData]="listPointsSort" [nzFrontPagination]="false" [nzBordered]="false">
       <thead>
         <tr>
           <th>ID</th>
@@ -88,13 +88,13 @@
       </thead>
       <tbody>
         <tr *ngFor="let data of basicTable.data; let i = index" style="height: 32px;">
-          <td>{{data.id}}</td>
-         <td>{{data.name}}</td>
-         <td>{{data.national.name}}</td>
-         <td>{{getTotalPoints(data)}}</td>
-         <td></td>
-         <td></td>
-        <td [nzAlign]="'right'" *ngFor="let race of races">{{getPointByRace(data, race)}}</td>
+          <td>{{data.bikerId}}</td>
+         <td>{{getNameBikerById(data.bikerId)}}</td>
+         <td>{{getNationalBikerById(data.bikerId)}}</td>
+         <td>{{data.totalPoints}}</td>
+         <td [nzAlign]="'center'">{{getLeaderPoints(data.bikerId)}}</td>
+         <td [nzAlign]="'center'">{{getPreviousPoints(data.bikerId)}}</td>
+        <td [nzAlign]="'right'" *ngFor="let biker of data.bikerObj">{{getPointByRace(data.bikerId, biker.racesId) ?? "-"}}</td>
         </tr>
       </tbody>
     </nz-table>
